@@ -1,0 +1,118 @@
+{% extends "layout/base.html" %}
+{% block title %}
+|{{ product.name }}
+{% endblock title %}
+{% block content %}
+{% load static %}
+<style>
+    /* General reset */
+    body,
+    html {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Arial', sans-serif;
+        background-color: #f8f8f8;
+    }
+
+    /* Container styling */
+    .tea-detail {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    /* Image styling */
+    .tea-detail img {
+        width: 100%;
+        max-height: 400px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+
+    /* Title styling */
+    .tea-detail h1 {
+        font-size: 2rem;
+        color: #333;
+        margin-bottom: 15px;
+    }
+
+    /* Detail paragraph styling */
+    .tea-detail p {
+        font-size: 1rem;
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 25px;
+    }
+
+    /* Button styling */
+    .tea-detail .btn {
+        display: inline-block;
+        padding: 12px 20px;
+        background-color: #008080;
+        color: #fff;
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .tea-detail .btn:hover {
+        background-color: #005f5f;
+        transform: scale(1.05);
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+        .tea-detail {
+            padding: 15px;
+        }
+
+        .tea-detail h1 {
+            font-size: 1.8rem;
+        }
+
+        .tea-detail p {
+            font-size: 0.95rem;
+        }
+
+        .tea-detail .btn {
+            font-size: 0.9rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .tea-detail h1 {
+            font-size: 1.5rem;
+        }
+
+        .tea-detail p {
+            font-size: 0.85rem;
+        }
+
+        .tea-detail .btn {
+            padding: 10px 15px;
+        }
+    }
+</style>
+
+
+    <div class="tea-detail">
+        <h1>{{ product.name }}</h1>
+        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+        <p>{{ product.description }}</p>
+        <p>Price: Rs {{ product.price }}</p>
+        <p>Likes: {{ product.likes }}</p>
+        <p>Views: {{ product.views }}</p>
+        <a href="#" class="btn">Buy Now</a>
+        <a href="{% url 'product_list' %}">Back to Products</a>
+    </div>
+
+
+{% endblock content %}

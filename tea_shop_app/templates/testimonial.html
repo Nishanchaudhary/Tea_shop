@@ -1,0 +1,38 @@
+{% extends "layout/base.html" %}
+{% block title %}
+|Testimonial
+{% endblock title %}
+{% block content %}
+{% load static %}
+
+
+<!-- testimonial section start -->
+<section class="testimonial" id="testimonial" style="margin-top: 40px;">
+    <div class="heading">
+        <h1>testimonial</h1>
+    </div>
+    <div class="box-container">
+        <div class="box">
+            <img src="{% static 'img/people2.jpg' %}" alt="">
+            <h3>selena ansari</h3>
+            <span>full stack developer</span>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati officia, et illo enim animi, quibusdam tenetur assumenda, id accusamus aliquid ratione eius nemo consectetur atque facilis quo soluta quos cupiditate.</p>
+        </div>
+        <div class="box">
+            <img src="{% static 'img/people3.jpg' %}" alt="">
+            <h3>aiyman ansari</h3>
+            <span>data scientist</span>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati officia, et illo enim animi, quibusdam tenetur assumenda, id accusamus aliquid ratione eius nemo consectetur atque facilis quo soluta quos cupiditate.</p>
+        </div>
+        <div class="box">
+            <img src="{% static 'img/team-01.jpg' %}" alt="">
+            <h3>anabia ansari</h3>
+            <span>web developer</span>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati officia, et illo enim animi, quibusdam tenetur assumenda, id accusamus aliquid ratione eius nemo consectetur atque facilis quo soluta quos cupiditate.</p>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock content %}

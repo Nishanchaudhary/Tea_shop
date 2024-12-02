@@ -1,0 +1,73 @@
+{% extends "layout/base.html" %}
+{% block title %}
+|Shop
+{% endblock title %}
+<meta name="csrf-token" content="{{ csrf_token }}">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{% block content %}
+{% load static %}
+
+<!-- shop section -->
+<div class="shop" id="shop" style="margin-top: 50px;">
+    <div class="heading">
+        <h1>BEST SELLER</h1>
+        <span>Best Seller Product This Week</span>
+    </div>
+    <div class="box-container">
+        <!-- product -->
+        {% for product in products %}
+        <div class="box">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            <div class="detail">
+                <div class="title">
+                    <p>{{ product.name }}</p>
+                    
+                    <div class="icons">
+                        <button class="like-btn" data-id="{{ product.id }}"><i class="bx bxs-heart"></i> {{ product.likes }}</button>
+                        
+                        <a href="{% url 'product_detail' product.id %}" ><i class="bx bxs-show"></i> ({{ product.views }})</a>
+                        
+                    </div>
+                </div>
+                <p class="price">RS {{ product.price }}/-</p>
+                <a href="" class="btn">buy now</a>
+            </div>
+        </div>
+        {% endfor %}
+        <!-- product -->
+
+    </div>
+</div>
+<!-- shop section end -->
+<script>
+    document.querySelectorAll('.like-btn').forEach(button => {
+        button.addEventListener('click', function () {
+            const productId = this.getAttribute('data-id');
+            const likeCountSpan = this.querySelector('.like-count');
+            const heartIcon = this.querySelector('i');
+
+            fetch("{% url 'like_product' %}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRFToken": "{{ csrf_token }}",
+                },
+                body: JSON.stringify({ product_id: productId }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    console.error(data.error);
+                    return;
+                }
+                // Update the UI
+                likeCountSpan.textContent = data.likes;
+                heartIcon.style.color = data.liked ? "red" : "gray";
+            })
+            .catch(error => console.error("Error:", error));
+        });
+    });
+</script>
+
+
+{% endblock content %}

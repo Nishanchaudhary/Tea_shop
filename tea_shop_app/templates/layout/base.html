@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- boxicon cdn link -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- custom css link -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        /* General Reset */
+
+
+        /* Search Container */
+        .search-container {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            border-radius: 25px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 5px;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        /* Search Input */
+        .search-input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 10px 15px;
+            font-size: 1rem;
+            border-radius: 25px 0 0 25px;
+            color: #333;
+        }
+
+        .search-input::placeholder {
+            color: #aaa;
+            font-style: italic;
+        }
+
+        /* Search Button */
+        .search-btn {
+            background: linear-gradient(90deg, #4caf50, #2e7d32);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 0 25px 25px 0;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .search-btn:hover {
+            background: linear-gradient(90deg, #2e7d32, #1b5e20);
+            transform: translateY(-2px);
+        }
+
+        .search-btn:active {
+            transform: translateY(1px);
+        }
+
+
+
+        /* General Reset */
+
+
+        /* Profile Dropdown Container */
+        .profile-dropdown {
+            position: relative;
+            display: inline-block;
+            text-align: center;
+        }
+
+        /* Profile Trigger */
+        .profile-trigger {
+            display: flex;
+            align-items: center;
+            background: #ffffff;
+            padding: 10px 15px;
+            border-radius: 25px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .profile-trigger:hover {
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Profile Image */
+        .profile-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            object-fit: cover;
+        }
+
+        /* Profile Name */
+        .profile-name {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Dropdown Menu */
+        .dropdown-menu {
+            position: absolute;
+            top: 60px;
+            right: 0;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            list-style: none;
+            padding: 10px 0;
+            display: none;
+            z-index: 10;
+        }
+
+        /* Dropdown Menu Items */
+        .dropdown-menu li {
+            margin: 0;
+            padding: 0;
+        }
+
+        .dropdown-menu li a {
+            display: block;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: #333;
+            text-decoration: none;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .dropdown-menu li a:hover {
+            background: #4caf50;
+            color: #ffffff;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .profile-trigger {
+                padding: 8px 10px;
+            }
+
+            .profile-img {
+                width: 35px;
+                height: 35px;
+            }
+
+            .profile-name {
+                font-size: 0.9rem;
+            }
+
+            .dropdown-menu {
+                width: 150px;
+            }
+
+            .dropdown-menu li a {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-trigger {
+                padding: 6px 8px;
+            }
+
+            .profile-img {
+                width: 30px;
+                height: 30px;
+            }
+
+            .profile-name {
+                font-size: 0.85rem;
+            }
+
+            .dropdown-menu {
+                width: 130px;
+            }
+
+            .dropdown-menu li a {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+    <title>Organic Tea {% block title %} {% endblock title %}</title>
+</head>
+
+<body>
+    <!-- header section start -->
+    <header>
+        <a href="{% url 'index' %}"><img src="{% static 'img/teashoplogo.png'%}" alt="" width="100"></a>
+        <nav class="navbar">
+            <ul>
+                <li><a href="{% url 'index' %}">home</a></li>
+                <li><a href="{% url 'about' %}">about</a></li>
+                <li><a href="{% url 'product_list' %}">shop</a></li>
+                <li><a href="{% url 'testimonial' %}">testimonial</a></li>
+                <li><a href="{% url 'blog' %}">blog</a></li>
+
+            </ul>
+        </nav>
+        <div class="icons">
+
+
+
+
+            <div class="cart-container">
+                <button class="cart-btn" style="background-color: #fff;">
+                    <i style="font-size:xx-large;" class="bx bxs-cart-add"></i>
+                    <span class="cart-text" >0</span>
+                </button>
+            </div>
+
+
+            <div class="profile-dropdown">
+                <div class="profile-trigger">
+                    <img src="{% static 'img/user.png' %}" alt="User Profile" class="profile-img">
+                    <span class="profile-name">User, {{ user.username }}</span>
+                </div>
+                <ul class="dropdown-menu">
+                    {% if user.is_authenticated %}
+
+                    <li><a href="{% url 'profile' %}">My Profile</a></li>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="#">Notifications</a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    {% endif %}
+
+                </ul>
+            </div>
+
+            <!-- <i style="font-size:xx-large;" class="bx bxs-cart-alt"></i> -->
+
+            <div class="bx bx-menu"></div>
+        </div>
+    </header>
+    <!-- header section end -->
+    {% block content %}
+
+    {% endblock content %}
+    <!-- footer section start -->
+    <div class="newsletter"
+        style="display: flex; justify-content: center; align-items: center; padding: 20px; background-color: #f4f4f4; border-radius: 10px;">
+        <div class="img-box" style="flex: 1; text-align: center; margin-right: 20px;">
+            <img src="{% static 'img/email.svg' %}" alt="" style="width: 60px; height: 60px; margin-bottom: 10px;">
+            <p style="font-size: 1.2rem; color: #333; font-weight: bold;">Signup for Newsletter</p>
+        </div>
+        <div class="input" style="flex: 1; display: flex; flex-direction: column; align-items: flex-start;">
+            <form method="POST" style="flex: 1; display: flex; flex-direction: column; align-items: flex-start;">
+                {% csrf_token %}
+                <input type="email" placeholder="Enter your email" name="email" id="id_email"
+                    value="{{ form.email.value|default:'' }}"
+                    style="padding: 10px; font-size: 1rem; border-radius: 5px; border: 2px solid #267e07; width: 100%; margin-bottom: 10px;">
+                <button
+                    style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; width: 100%;">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="content">
+            <div class="box">
+                <img src="{% static 'img/teashoplogo.png' %}" alt="">
+                <p>We’re always in search for talented and motivated people. Don’t be shy introduce yourself! <br>We’re
+                    always in search for talented and motivated people.</p>
+            </div>
+            <div class="box">
+                <h3>Help & Information</h3>
+                <a href="">help center</a>
+                <a href="">address store</a>
+                <a href="">privacy policy</a>
+                <a href="">receiver</a>
+                <a href="">out store</a>
+            </div>
+            <div class="box">
+                <h3>About us</h3>
+                <a href="">pagination</a>
+                <a href="">terms & condition</a>
+                <a href="">contact</a>
+                <a href="">instructor</a>
+                <a href="">events</a>
+            </div>
+            <div class="box">
+                <h3>get contact</h3>
+                <p>Phone : (406) 555-0120</p>
+                <p>E-mail : rainbow@example.com</p>
+                <p>Location : North America, USA</p>
+                <div class="icons">
+                    <i class="bx bxl-facebook"></i>
+                    <i class="bx bxl-twitter"></i>
+                    <i class="bx bxl-instagram"></i>
+                    <i class="bx bxl-linkedin"></i>
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            <p>Copyright © 2023 code with selena. All Rights Reserved</p>
+            <img src="{% static 'img/credist.jpg' %}" alt="">
+        </div>
+    </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const profileTrigger = document.querySelector(".profile-trigger");
+            const dropdownMenu = document.querySelector(".dropdown-menu");
+
+            profileTrigger.addEventListener("click", function () {
+                dropdownMenu.style.display =
+                    dropdownMenu.style.display === "block" ? "none" : "block";
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener("click", function (e) {
+                if (!profileTrigger.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                    dropdownMenu.style.display = "none";
+                }
+            });
+        });
+
+    </script>
+</body>
+
+</html>

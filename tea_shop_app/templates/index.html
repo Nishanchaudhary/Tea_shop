@@ -1,0 +1,101 @@
+{% extends "layout/base.html" %}
+{% block title %}
+|Home
+{% endblock title %}
+{% block content %}
+{% load static %}
+<body>
+
+    <!-- home section start -->
+    <div class="slider-container" id="home">
+        <div class="slider">
+            <!-- slide box -->
+            <div class="slideBox active">
+                <div class="textBox">
+                    <h1>herbal medicin tea</h1>
+                    <a href="" class="btn">shop now</a>
+                </div>
+                <div class="imgBox">
+                    <img src="{% static 'img/slider.webp' %}" alt="">
+                </div>
+            </div>
+            <!-- slide box -->
+            <div class="slideBox">
+                <div class="textBox">
+                    <h1>herbal medicin tea</h1>
+                    <a href="" class="btn">shop now</a>
+                </div>
+                <div class="imgBox">
+                    <img src="{% static 'img/slider0.webp' %}" alt="">
+                </div>
+            </div>
+            <!-- slide box -->
+            <div class="slideBox">
+                <div class="textBox">
+                    <h1>herbal medicin tea</h1>
+                    <a href="" class="btn">shop now</a>
+                </div>
+                <div class="imgBox">
+                    <img src="{% static 'img/slider1.avif' %}" alt="">
+                </div>
+            </div>
+            <!-- slide box -->
+            <div class="slideBox">
+                <div class="textBox">
+                    <h1>herbal medicin tea</h1>
+                    <a href="" class="btn">shop now</a>
+                </div>
+                <div class="imgBox">
+                    <img src="{% static 'img/slider2.avif' %}" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="controls">
+            <li onclick="nextSlide()"><i class="bx bx-right-arrow-alt"></i></li>
+            <li onclick="prevSlide()"><i class="bx bx-left-arrow-alt"></i></li>
+        </div>
+    </div>
+    <!-- home section end -->
+    <!-- categories section -->
+    <div class="categories">
+        <div class="box">
+            <div class="img-box">
+                <img src="{% static 'img/category (1).jpg' %}" alt="">
+            </div>
+            <h2>matcha</h2>
+        </div>
+        <div class="box">
+            <div class="img-box">
+                <img src="{% static 'img/category (2).jpg' %}" alt="">
+            </div>
+            <h2>sinnamon tea</h2>
+        </div>
+        <div class="box">
+            <div class="img-box">
+                <img src="{% static 'img/category (3).jpg' %}" alt="">
+            </div>
+            <h2>lemon tea</h2>
+        </div>
+        <div class="box">
+            <div class="img-box">
+                <img src="{% static 'img/category (4).jpg' %}" alt="">
+            </div>
+            <h2>black tea</h2>
+        </div>
+        <div class="box">
+            <div class="img-box">
+                <img src="{% static 'img/category (5).jpg' %}" alt="">
+            </div>
+            <h2>herbal tea</h2>
+        </div>
+        <div class="box">
+            <div class="img-box">
+                <img src="{% static 'img/category (6).jpg' %}" alt="">
+            </div>
+            <h2>green tea</h2>
+        </div>
+    </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+{% endblock content %}

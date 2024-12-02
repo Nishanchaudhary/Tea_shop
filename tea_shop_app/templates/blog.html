@@ -1,0 +1,104 @@
+{% extends "layout/base.html" %}
+{% block title %}
+|Blog
+{% endblock title %}
+{% block content %}
+{% load static %}
+
+<!-- blog section start -->
+<div class="blog" id="blog" style="margin-top: 19px;">
+    <div class="heading">
+        <h1>our blog</h1>
+    </div>
+    <div class="box-container">
+        {% for tea in teas %}
+        <div class="box">
+            <img src="{{ tea.image.url }}" alt="{{ tea.title }}">
+            <div class="content">
+                <div class="date">
+                    <span>{{ tea.date|date:"d" }}</span>
+                    <p>{{ tea.date|date:"M" }}</p>
+                </div>
+                <h3>{{ tea.title }}</h3>
+                <p>{{ tea.description|truncatechars:100 }}</p>
+                <a href="{{ tea.id }}/" class="btn">read more</a>
+            </div>
+        </div>
+        {% endfor %}
+
+
+
+
+
+        <!-- blog item -->
+        <div class="box">
+            <img src="{% static 'img/blog (2).jpg' %}" alt="">
+            <div class="content">
+                <div class="date">
+                    <span>11</span>
+                    <p>jun</p>
+                </div>
+                <h3>natural lemon tea</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur</p>
+                <a href="" class="btn">read more</a>
+            </div>
+        </div>
+        <!-- blog item -->
+        <div class="box">
+            <img src="{% static 'img/blog (3).jpg' %}" alt="">
+            <div class="content">
+                <div class="date">
+                    <span>11</span>
+                    <p>jun</p>
+                </div>
+                <h3>natural lemon tea</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur</p>
+                <a href="" class="btn">read more</a>
+            </div>
+        </div>
+        <!-- blog item -->
+        <div class="box">
+            <img src="{% static 'img/blog (4).jpg' %}" alt="">
+            <div class="content">
+                <div class="date">
+                    <span>11</span>
+                    <p>jun</p>
+                </div>
+                <h3>natural lemon tea</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur</p>
+                <a href="" class="btn">read more</a>
+            </div>
+        </div>
+        <!-- blog item -->
+        <div class="box">
+            <img src="{% static 'img/blog (5).jpg' %}" alt="">
+            <div class="content">
+                <div class="date">
+                    <span>11</span>
+                    <p>jun</p>
+                </div>
+                <h3>natural lemon tea</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur</p>
+                <a href="" class="btn">read more</a>
+            </div>
+        </div>
+        <!-- blog item -->
+        <div class="box">
+            <img src="{% static 'img/blog (1).jpg' %}" alt="">
+            <div class="content">
+                <div class="date">
+                    <span>11</span>
+                    <p>jun</p>
+                </div>
+                <h3>natural lemon tea</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur</p>
+                <a href="" class="btn">read more</a>
+            </div>
+        </div>
+        <!-- blog item -->
+    </div>
+</div>
+<!-- blog section end -->
+
+
+{% endblock content %}

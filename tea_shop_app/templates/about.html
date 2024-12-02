@@ -1,0 +1,77 @@
+{% extends "layout/base.html" %}
+{% block title %}
+|About_Us
+{% endblock title %}
+{% block content %}
+{% load static %}
+
+
+<!-- about section -->
+<div class="about" id="about">
+    <div class="row">
+        <div class="image">
+            <img src="{% static 'img/about.jpg' %}" alt="">
+        </div>
+        <div class="content">
+            <h3>Organic Tea</h3>
+            <p>Welcome to <strong>The Organic Tea </strong>, your go-to destination for the finest teas and a
+                cozy ambiance where every
+                sip tells a story.At The Tea Haven, we believe in the art of tea-making and the joy it brings.Established with a
+                passion
+                for creating memorable tea experiences, our shop is more than just a place to grab a cup of tea —
+                it's a
+                haven where flavors, traditions, and relaxation blend seamlessly.
+                <span id="dots">......</span>
+                <span id="more">
+                    <strong>Our Mission</strong><br>
+                    To bring the world of tea closer to you by offering a curated selection of high-quality teas,
+                    prepared with care, and served in a warm, welcoming environment.
+
+                    <br><strong>Our Story</strong><br>
+                    Founded by tea enthusiasts, The Tea Haven was born out of a love for exploring the diverse world of tea and sharing it with the community. Our team works tirelessly to source the finest ingredients and craft a menu that caters to traditional tastes and adventurous palates alike.
+
+
+                </span>
+            </p>
+            <button id="read-more-btn" style="
+              background-color: #1ffa47; 
+              color: white; 
+              border: none; 
+              padding: 12px 20px; 
+              font-size: 16px; 
+              font-weight: bold; 
+              text-transform: uppercase; 
+              letter-spacing: 1px; 
+              border-radius: 30px; 
+              cursor: pointer; 
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06); 
+              transition: all 0.3s ease;
+            " onmouseover="this.style.backgroundColor='#1ffa47'; this.style.boxShadow='0 6px 10px rgba(0, 0, 0, 0.15)';"
+                onmouseout="this.style.backgroundColor='#08b628c9'; this.style.boxShadow='0 4px 6px rgba(0, 0, 0, 0.1)';">
+                Learn More
+            </button>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById("read-more-btn").addEventListener("click", function () {
+        const dots = document.getElementById("dots");
+        const moreText = document.getElementById("more");
+        const btn = this;
+
+        if (dots.style.display === "none") {
+            dots.style.display = "inline";
+            moreText.style.display = "none";
+            btn.innerText = "Read More";
+        } else {
+            dots.style.display = "none";
+            moreText.style.display = "inline";
+            btn.innerText = "Read Less";
+        }
+    });
+
+</script>
+
+{% endblock content %}
